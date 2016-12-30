@@ -25,7 +25,7 @@ class VTChecker(threading.Thread):
             file_name = file_name.replace("\\", "/")
 
         # send file
-        params = {'apikey': 'b743bf32a25fa1a43232f26fcc7d41676d12e8ed2eb76505001301482ddaacdc'}
+        params = {'apikey': '-your api key-'}
         files = {'file': (file_name, open(file_name, 'rb'))}
         response = requests.post('https://www.virustotal.com/vtapi/v2/file/scan', files=files, params=params)
         json_response = response.json()
@@ -36,7 +36,7 @@ class VTChecker(threading.Thread):
         # retrieving file scan reports
         response_code = 0
         while not response_code:
-            params = {'apikey': 'b743bf32a25fa1a43232f26fcc7d41676d12e8ed2eb76505001301482ddaacdc', 'resource': resource}
+            params = {'apikey': '-your api key-', 'resource': resource}
             headers = {
                 "Accept-Encoding": "gzip, deflate",
                 "User-Agent": "gzip,  My Python requests library example client or username"
